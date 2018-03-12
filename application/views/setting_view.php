@@ -44,40 +44,66 @@
                         <div class="col-md-5 device-box " style="margin-top:5px;margin-bottom: 5px;">
                             <div class="col-md-4">
                                 <img src="<?php echo base_url("img/device/weber-print-apply.jpg")?>" width="80" height="80">
-                                <label style="font-size: 9px">CONNECTED</label><span class="fa fa-circle" style="color: #00CC00"></span>
-                                <label style="font-size:9px;display: none;">NOT CONNECT</label><span class="fa fa-circle" style="color:red;display: none; "></span>
+<!--                                <label style="font-size: 9px">CONNECTED</label><span class="fa fa-circle" style="color: #00CC00"></span>-->
+<!--                                <label style="font-size:9px;display: none;">NOT CONNECT</label><span class="fa fa-circle" style="color:red;display: none; "></span>-->
                             </div>
                             <div class="col-md-8 device-font" >
+                                <?php foreach ($data_table1->result() as $row){?>
                                 <label class="control-label">Name</label>
-                                <input type="text"  readonly="readonly" placeholder="Read-Only Input"><br>
+                                <input type="text"  readonly="readonly" placeholder="<?php echo $row->device_names;?>"><br>
                                 <label class="control-label">Type</label>
-                                <input type="text"  readonly="readonly" placeholder="Read-Only Input"><br>
+                                <input type="text"  readonly="readonly" placeholder="<?php echo $row->device_type;?>">  <br>
                                 <label class="control-label">IP</label><br>
-                                <input type="text"  readonly="readonly" placeholder="Read-Only Input"><br>
+                                <input type="text"  readonly="readonly" placeholder="<?php echo $row->ip_address;?>"><br>
                                 <label class="control-label">Port</label>
-                                <input type="text"  readonly="readonly" placeholder="Read-Only Input"><br>
+                                <input type="text"  readonly="readonly" placeholder="<?php echo $row->port_number;?>"><br>
                                 <label class="control-label">S/N</label><br>
-                                <input type="text"  readonly="readonly" placeholder="Read-Only Input"><br>
+                                <input type="text"  readonly="readonly" placeholder="<?php echo $row->serial_number;?>"><br>
+                                <?php }?>
+                            </div>
+                        </div>
+
+                        <div class="col-md-5 device-box " style="margin-top: 5px;margin-bottom: 5px;">
+                            <div class="col-md-4">
+                                <img src="<?php echo base_url("img/device/weber-print-apply.jpg")?>" width="80" height="80">
+<!--                                <label style="font-size:9px;display: none;">CONNECTED</label><span class="fa fa-circle" style="color: #00CC00;display: none; "></span>-->
+<!--                                <label style="font-size: 9px;">NOT CONNECT</label><span class="fa fa-circle" style="color:red;"></span>-->
+                            </div>
+                            <div class="col-md-8 device-font"  >
+                                <?php foreach ($data_table2->result() as $row) {?>
+                                <label class="control-label">Name</label>
+                                <input type="text"  readonly="readonly" placeholder="<?php echo $row->device_names;?>"><br>
+                                <label class="control-label">Type</label>
+                                <input type="text"  readonly="readonly" placeholder="<?php echo $row->device_type;?>">  <br>
+                                <label class="control-label">IP</label><br>
+                                <input type="text"  readonly="readonly" placeholder="<?php echo $row->ip_address;?>" ><br>
+                                <label class="control-label">Port</label>
+                                <input type="text"  readonly="readonly" placeholder="<?php echo $row->port_number;?>"><br>
+                                <label class="control-label">S/N</label><br>
+                                <input type="text"  readonly="readonly" placeholder="<?php echo $row->serial_number;?>" ><br>
+                           <?php }?>
                             </div>
                         </div>
 
                         <div class="col-md-5 device-box " style="margin-top: 5px;margin-bottom: 5px;">
                             <div class="col-md-4">
                                 <img src="<?php echo base_url("img/device/teledyne-camera.jpg")?>" width="80" height="80">
-                                <label style="font-size:9px;display: none;">CONNECTED</label><span class="fa fa-circle" style="color: #00CC00;display: none; "></span>
-                                <label style="font-size: 9px;">NOT CONNECT</label><span class="fa fa-circle" style="color:red;"></span>
+<!--                                <label style="font-size:9px;display: none;">CONNECTED</label><span class="fa fa-circle" style="color: #00CC00;display: none; "></span>-->
+<!--                                <label style="font-size: 9px;">NOT CONNECT</label><span class="fa fa-circle" style="color:red;"></span>-->
                             </div>
                             <div class="col-md-8 device-font"  >
+                                <?php foreach ($data_table3->result() as $row) {?>
                                 <label class="control-label">Name</label>
-                                <input type="text"  readonly="readonly" placeholder="Read-Only Input"><br>
-                                <label class="control-label">Type</label>
-                                <input type="text"  readonly="readonly" placeholder="Read-Only Input"><br>
-                                <label class="control-label">IP</label><br>
-                                <input type="text"  readonly="readonly" placeholder="Read-Only Input"><br>
-                                <label class="control-label">Port</label>
-                                <input type="text"  readonly="readonly" placeholder="Read-Only Input"><br>
-                                <label class="control-label">S/N</label><br>
-                                <input type="text"  readonly="readonly" placeholder="Read-Only Input"><br>
+                                    <input type="text"  readonly="readonly" placeholder="<?php echo $row->device_names;?>"><br>
+                                    <label class="control-label">Type</label>
+                                    <input type="text"  readonly="readonly" placeholder="<?php echo $row->device_type;?>">  <br>
+                                    <label class="control-label">IP</label><br>
+                                    <input type="text"  readonly="readonly" placeholder="<?php echo $row->ip_address;?>" ><br>
+                                    <label class="control-label">Port</label>
+                                    <input type="text"  readonly="readonly" placeholder="<?php echo $row->port_number;?>"><br>
+                                    <label class="control-label">S/N</label><br>
+                                    <input type="text"  readonly="readonly" placeholder="<?php echo $row->serial_number;?>" ><br>
+                                <?php }?>
                             </div>
                         </div>
 

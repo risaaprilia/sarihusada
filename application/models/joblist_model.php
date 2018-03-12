@@ -9,11 +9,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class joblist_model extends CI_Model
 {
 
-    var $table = 't_job_list';
+    var $table = 'tjob_list';
 
     public function get_all_jobs()
     {
-        $query=$this->db->query("select * from t_job_list");
+        $query=$this->db->query("select * from tjob_list");
         return $query;
     }
 

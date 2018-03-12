@@ -8,7 +8,7 @@
  */
 class job_table extends CI_Model{
     function get_table_data(){
-        $query=$this->db->query("select * from t_job_list");
+        $query=$this->db->query("select * from tjob_list");
         return $query;
     }
 }

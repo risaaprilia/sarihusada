@@ -203,7 +203,10 @@ margin-top: 3em;
 .top_header{
 margin-top: 2em;}
 
-
+div ul li button.button_bar:hover{
+    background: linear-gradient(0deg,#999999,#FFFFFF);
+    color: #0f0f0f;
+}
 .button_bar{
     padding: 2em;
     width: 13em;
@@ -211,18 +214,12 @@ margin-top: 2em;}
     margin-top: 1em;
     font-size: 12px;
     font-family: "Arial Black";
-    color:#FFFFFF;
+    /*color:#FFFFFF;*/
     border-radius: 8px;
-    cursor: pointer;
-    text-decoration-color: #FFFFFF;
-
+    /*cursor: pointer;*/
+    /*text-decoration-color: #FFFFFF;*/
 }
 
-
-.button_bar:hover{
-    background: linear-gradient(0deg,#999999,#FFFFFF);
-    color: #0f0f0f;
-}
 
 .tittle_box{
     background-color: #2B388F;
@@ -427,6 +424,10 @@ label{
     font-size: 12px;
 
 }
+
+/*.button_bar:focus{*/
+      /*background: linear-gradient(0deg,#EFEFEF,#FFFFFF);*/
+/*}*/
 
 
 

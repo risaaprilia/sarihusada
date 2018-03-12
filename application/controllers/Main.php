@@ -33,7 +33,7 @@ class Main extends CI_Controller {
             'username'=>$username,
             'pin' => $code
         );
-        $cek = $this->user_model->login_check("user", $where)-> num_rows();
+        $cek = $this->user_model->login_check("tuser", $where)-> num_rows();
         if($cek >0 ){
             $data_session = array(
                 'username' => $username,

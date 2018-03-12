@@ -55,13 +55,11 @@
     </div>
     <div class="col-md-12" style="padding-left: 1px">
         <div class="col-md-2 fluid" style="list-style: none;padding-left: 1px" >
-
-                <li><a href="<?php echo site_url('Overview/display');?>" ><button class="button_bar js-click" >OVERVIEW</button></a></li>
-                <li><a href="<?php echo site_url('Operation/display'); ?>"><button class="button_bar js-click" >OPERATION</button></li></a>
-                <li> <a href="<?php echo site_url('Setting/display'); ?>"><button class="button_bar js-click" >SETTING</button></li></a>
-                <li><a href="<?php echo site_url('Report/display'); ?>"><button class="button_bar js-click" >REPORT</button></li></a>
-                <li><a href="<?php echo site_url('Log/display'); ?>"><button class="button_bar js-click" >LOG</button></li></a>
-
+                <li><a href="<?php echo site_url('Overview/display'); ?>"><button class="button_bar" >OVERVIEW</button></a></li>
+                <li><a href="<?php echo site_url('Operation/display'); ?>"><button class="button_bar" >OPERATION</button></li></a>
+                <li><a href="<?php echo site_url('Setting/display'); ?>"><button class="button_bar" >SETTING</button></li></a>
+                <li><a href="<?php echo site_url('Report/display'); ?>"><button class="button_bar" >REPORT</button></li></a>
+                <li><a href="<?php echo site_url('Log/display'); ?>"><button class="button_bar">LOG</button></li></a>
         </div>
         <div class="col-md-10" style="padding-left: 2px;">
 

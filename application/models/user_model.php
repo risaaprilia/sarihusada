@@ -8,7 +8,7 @@
 class user_model extends CI_model{
 
     function get_user_data(){
-    $query=$this->db->query("select * from USER ");
+    $query=$this->db->query("select * from tuser ");
     return $query;
     }
 
