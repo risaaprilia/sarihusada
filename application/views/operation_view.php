@@ -31,28 +31,32 @@
 
 
                 <!--Tab Printer Pallete-->
-                <form >
-                    <div class="col-md-8 form_login">
+            <form action="<?php echo site_url('Operation/start_job'); ?>" method="post" >
+                    <div class="col-md-6 form_login">
                         <label> Select Job : </label>
+<!--                        start of dropdown-->
                         <select  id="start_job" name ="start_job" value="value" class="form-control"  required>
                             <?php foreach ($job_list->result()as $row)
                             { ?>
-                                <option style="width: 80%" <?php $id=$row->job_id; ?> > <?php echo$row->job_name;  ?> </option>
+                                <option <?php echo $job_id=$row->job_id;?>" > <?php echo$row->job_name;  ?> </option>
                             <?php } ?>
                         </select>
                     </div>
-
-                    <div class =col-md-4 >
+<!--                end of dropdown-->
+<!--               start of button-->
+                    <div class ="col-md-6" >
                         <br/><br/>
-                        <button class="btn btn-success"><a href="<?php echo site_url('Operation/start_job/'.$row->job_id.''); ?>"> START </button>
-                        <button class="btn btn-success"><a href="<?php echo site_url('Operation/stop_job/'.$row->job_id.''); ?>"> STOP </button>
-
-                       </div>
+<!--                        <button type="submit" class="btn btn-success"><a href="--><?php //echo site_url('Operation/start_job/'.$row->job_id.''); ?><!--"> START </button>-->
+<!--                        <button class="btn btn-success"><a href="--><?php //echo site_url('Operation/stop_job/'.$row->job_id.''); ?><!--"> STOP </button>-->
+                    </div>
+<!--                end if button-->
                 </form>
+
+            <br><br>
 
                 <div class="" role="tabpanel" data-example-id="togglable-tabs">
                     <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
-                        <li role="presentation" class="active"><a href="#tab_content1" id="device-tab" role="tab" data-toggle="tab" aria-expanded="true">Printer Pallet</a>
+                        <li role="presentation" class=""><a href="#tab_content1" id="device-tab" role="tab" data-toggle="tab" aria-expanded="true">Printer Pallet</a>
                         </li>
                         <li role="presentation" class=""><a href="#tab_content2" role="tab" id="split-tab" data-toggle="tab" aria-expanded="false">Printer Bag</a>
                         </li>
@@ -64,7 +68,9 @@
                         <div role="tabpanel" class="tab-pane fade active in" id="tab_content1" aria-labelledby="device-tab">
                             <div class="col-md-12 ">
                                 <div class="col-md-8">
-                                    lampu , log
+                                    <button class="btn btn-success "> start </button>
+                                    <button class="btn btn-warning disabled" > Warn </button>
+                                    <button class="btn btn-danger disabled"> Stop </button>
                                 </div>
                                 <div class="col-md-4">
                                     ip camera
