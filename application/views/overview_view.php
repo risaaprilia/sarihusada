@@ -69,7 +69,7 @@
  </div>
 <div class="footer_top"></div>
 <div class="footer">
-     <div class="col-md-6 float-lg-left" style="text-align: left;">
+     <div class="col-md-6 float-lg-left" style="text-align: left;padding-top: 6.5px;">
         <img src="<?php echo base_url("img/logo/ETRONICS_LOGO_WHITE_v1.0.png");?>"  width="20%" class="img-responsive"  />
     </div>
     <p class="col-md-6 float-lg-right" style="text-align: right"> V180503012018<br>© Copyright By PT ETRONIKA MAHAKARYA TEKNOLOGI</p>
@@ -98,7 +98,7 @@
         $(".clock").html(currentTimeString);
 
         // Compose the string for display date
-        var currentDateString = date + "/" + month + "/"+ year;
+        var currentDateString = date + "/" + (month+1) + "/"+ year;
         $(".date").html(currentDateString);
     }, 1000);
 </script>

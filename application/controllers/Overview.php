@@ -13,9 +13,9 @@ class Overview extends CI_Controller {
         $this->load->model('job_table','',TRUE);
         $this->load->model('joblist_model','',TRUE);
 
-//        if($this->session->userdata('status')!= 1){
-//            redirect(base_url("Main"));
-//        }
+        if($this->session->userdata('status')!= 1){
+            redirect(base_url("Main"));
+        }
     }
 
     public function display()
@@ -66,6 +66,18 @@ class Overview extends CI_Controller {
     {
         $this->joblist_model->delete_by_id($id);
         echo json_encode(array("status" => TRUE));
+    }
+
+    public function update_data($id)
+    {
+        $data = array(
+            'job_status' => 2,
+        );
+
+        $this->db->where('job_id', $id);
+        $this->db->update('tjob_list', $data);
+        $this->session->set_flashdata('message', 'Your data deleted Successfully..');
+        redirect('Overview/display');
     }
 
 

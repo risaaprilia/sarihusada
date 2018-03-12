@@ -18,9 +18,9 @@ class Operation extends CI_Controller
         $this->load->model('job_table','',TRUE);
         $this->load->model('joblist_model','',TRUE);
 //        session
-//        if ($this->session->userdata('status') != 1) {
-//            redirect(base_url("Main"));
-//        }
+        if ($this->session->userdata('status') != 1) {
+            redirect(base_url("Main"));
+        }
     }
 
     public function display()
@@ -30,15 +30,27 @@ class Operation extends CI_Controller
         $this->load->view('overview_view', $data);
     }
 
-    function start_job($id)
+    public function start_job($id)
     {
-        $where = array('id' => $id);
-        $data['job_list'] = $this->joblist_model->update_status($where,'job_list')->result();
-//        $this->load->view('overview_view',$data);
+        $data = array(
+            'job_status' => 0,
+        );
+
+        $this->db->where('job_id', $id);
+        $this->db->update('tjob_list', $data);
+        redirect('Operation/display');
     }
 
-    function stop_job()
+
+    public function stop_job($id)
     {
+        $data = array(
+            'job_status' => 1,
+        );
+
+        $this->db->where('job_id', $id);
+        $this->db->update('tjob_list', $data);
+        redirect('Operation/display');
 
     }
 }

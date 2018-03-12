@@ -49,7 +49,7 @@
                         <td><?php echo $row->job_name;?></td>
 
                         <td>
-                            <button class="btn btn-danger" onclick="purge_job(<?php echo $row->job_id;?>)"><i class="glyphicon glyphicon-remove" tittle="delete"></i></button>
+                            <button class="btn btn-danger" name="userid"><a href="<?php echo site_url('Overview/update_data/'.$row->job_id.''); ?>"><i class="glyphicon glyphicon-remove" tittle="delete"></i></button>
                             <button class="btn btn-warning" onclick="delete_job(<?php echo $row->job_id;?>)"><i class="glyphicon glyphicon-trash" tittle="purge"></i></button>
 
                         </td>

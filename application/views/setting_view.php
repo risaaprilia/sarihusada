@@ -125,13 +125,13 @@
                 </div>
 
                 <div role="tabpanel" class="tab-pane fade" id="tab_content4" aria-labelledby="profile-tab">
-
+                    <?php foreach ($data_profile->result() as $row) {?>
                     <div class="col-md-12">
                         <div class="col-md-2"
                             <label>First Name <span class="required">*</span></label>
                         </div>
                         <div class="col-md-5">
-                            <input type="text"  required="required" style="width: 20em" value="name" readonly >
+                            <input type="text"  required="required" style="width: 20em" placeholder="<?php echo $row->username;?>" readonly >
                         </div>
                     </div>
 
@@ -140,36 +140,28 @@
                             <label>Role <span class="required">*</span></label>
                         </div>
                         <div class="col-md-5">
-                            <input type="text"  required="required" style="width: 20em"  value="Role" readonly>
+                            <input type="text"  required="required" style="width: 20em"  placeholder="<?php echo $row->role;?>" readonly>
                         </div>
                       </div>
-
-                     <div class="col-md-12" style="margin-top: 1em">
-                        <div class="col-md-2"
-                        <label>Division <span class="required">*</span></label>
-                        </div>
-                        <div class="col-md-5">
-                            <input type="text"  required="required" style="width: 20em" value="Division" readonly>
-                        </div>
-                    </div>
 
                     <div class="col-md-12" style="margin-top: 1em">
                         <div class="col-md-2"
                         <label>Contact <span class="required">*</span></label>
                         </div>
                         <div class="col-md-5">
-                            <input type="text"  required="required" style="width: 20em" value="contact" readonly >
+                            <input type="text"  required="required" style="width: 20em" placeholder="<?php echo $row->contact;?>" readonly >
                         </div>
                     </div>
 
                     <div class="col-md-12" style="margin-top: 1em">
                         <div class="col-md-2"
-                        <label>Password <span class="required">*</span></label>
+                        <label>PIN <span class="required">*</span></label>
                     </div>
                     <div class="col-md-5">
-                        <button class="btn btn-primary" required="required" style="width: 15em;color: #FFFFFF;" > Change password</button>
+                        <button class="btn btn-primary" required="required" style="width: 15em;color: #FFFFFF;" > Change PIN</button>
                     </div>
                      </div>
+                <?php }?>
                 </div>
             </div>
         </div>

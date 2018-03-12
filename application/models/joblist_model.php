@@ -13,7 +13,13 @@ class joblist_model extends CI_Model
 
     public function get_all_jobs()
     {
-        $query=$this->db->query("select * from tjob_list");
+        $query=$this->db->query("select * from tjob_list WHERE job_status!=2 ");
+        return $query;
+    }
+
+    public function get_all_status_jobs()
+    {
+        $query=$this->db->query("select * from tjob_list ");
         return $query;
     }
 
@@ -48,6 +54,7 @@ class joblist_model extends CI_Model
     function update_status($where,$table){
         return $this->db->get_where($table,$where);
     }
+
 
 
 }

@@ -26,4 +26,10 @@ class setting_model extends CI_Model
         $query = $this->db->query("select * from tconfig WHERE device_id=3");
         return $query;
     }
+
+    public function get_profile($id)
+    {
+        $query = $this->db->query("select * from tuser WHERE userid=$id");
+        return $query;
+    }
 }

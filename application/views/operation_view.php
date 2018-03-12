@@ -31,21 +31,23 @@
 
 
                 <!--Tab Printer Pallete-->
-                <form action="<?php echo base_url('Operation/start_job'); ?>" method="post" >
-
-                    <div class="col-md-10 form_login">
+                <form >
+                    <div class="col-md-8 form_login">
                         <label> Select Job : </label>
-                        <select  id="start_job" name ="start_job" value="value" class="form-control" style="width: 100%" required>
+                        <select  id="start_job" name ="start_job" value="value" class="form-control"  required>
                             <?php foreach ($job_list->result()as $row)
                             { ?>
-                                <option <?php $job_id=$row->job_id; ?> > <?php echo$row->job_name;  ?>  </option>
+                                <option style="width: 80%" <?php $id=$row->job_id; ?> > <?php echo$row->job_name;  ?> </option>
                             <?php } ?>
                         </select>
                     </div>
-                    <div class =col-md-2 >
+
+                    <div class =col-md-4 >
                         <br/><br/>
-                        <button class="btn btn-success"> START </button>
-                    </div>
+                        <button class="btn btn-success"><a href="<?php echo site_url('Operation/start_job/'.$row->job_id.''); ?>"> START </button>
+                        <button class="btn btn-success"><a href="<?php echo site_url('Operation/stop_job/'.$row->job_id.''); ?>"> STOP </button>
+
+                       </div>
                 </form>
 
                 <div class="" role="tabpanel" data-example-id="togglable-tabs">
