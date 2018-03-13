@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 05, 2018 at 01:34 AM
+-- Generation Time: Mar 13, 2018 at 04:58 AM
 -- Server version: 10.1.10-MariaDB
 -- PHP Version: 5.6.15
 
@@ -19,28 +19,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `depalletizer-sari`
 --
-
--- --------------------------------------------------------
-
---
--- Table structure for table `config`
---
-
-CREATE TABLE `config` (
-  `device_id` int(11) DEFAULT NULL,
-  `device_names` varchar(50) DEFAULT NULL,
-  `device_type` varchar(50) DEFAULT NULL,
-  `device_status` int(8) DEFAULT NULL,
-  `device_ip` varchar(50) DEFAULT NULL,
-  `device_port` varchar(20) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `config`
---
-
-INSERT INTO `config` (`device_id`, `device_names`, `device_type`, `device_status`, `device_ip`, `device_port`) VALUES
-(NULL, NULL, NULL, 0, '192.168.0.102', '6101');
 
 -- --------------------------------------------------------
 
@@ -164,47 +142,106 @@ INSERT INTO `tbl_print` (`id`, `PrO`, `LotSeq`, `Number`, `qty`, `Batch`, `produ
 -- --------------------------------------------------------
 
 --
--- Table structure for table `t_job_list`
+-- Table structure for table `tconfig`
 --
 
-CREATE TABLE `t_job_list` (
-  `job_id` int(11) NOT NULL,
-  `job_name` varchar(50) DEFAULT NULL,
-  `create_date` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
-  `update_date` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
-  `job_desc` varchar(100) DEFAULT NULL,
-  `job_status` varchar(30) DEFAULT NULL,
-  `deleted_job` varchar(1) DEFAULT NULL
+CREATE TABLE `tconfig` (
+  `device_id` int(11) NOT NULL,
+  `device_names` varchar(50) NOT NULL,
+  `device_type` varchar(50) NOT NULL,
+  `status` int(8) NOT NULL DEFAULT '0',
+  `ip_address` varchar(50) NOT NULL,
+  `port_number` varchar(20) NOT NULL,
+  `serial_number` int(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `t_job_list`
+-- Dumping data for table `tconfig`
 --
 
-INSERT INTO `t_job_list` (`job_id`, `job_name`, `create_date`, `update_date`, `job_desc`, `job_status`, `deleted_job`) VALUES
-(1, 'test_job', '2018-03-05 06:24:27', '2018-03-05 06:24:27', 'lorem_ipsum', '0', NULL),
-(4, 'test 2', '2018-03-05 06:24:38', '2018-03-05 06:24:38', '                                   tes 2     ', '1', NULL);
+INSERT INTO `tconfig` (`device_id`, `device_names`, `device_type`, `status`, `ip_address`, `port_number`, `serial_number`) VALUES
+(1, 'Printer PALLETE', 'Label Printer', 1, '', '6101', 0),
+(2, 'Printer BAG', 'Label Printer', 1, '192.168.0.102', '9100', 0),
+(3, 'Camera VERIFICATION', 'Camera', 1, '192.168.0.103', '5106', 0),
+(4, 'Printer BAG', 'Label Printer', 0, '192.168.26.101', '9100', 0);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user`
+-- Table structure for table `tjob_list`
 --
 
-CREATE TABLE `user` (
-  `userid` int(50) NOT NULL,
-  `username` varchar(50) DEFAULT NULL,
-  `pin` int(8) DEFAULT NULL,
-  `status` int(50) DEFAULT NULL
+CREATE TABLE `tjob_list` (
+  `job_id` int(11) NOT NULL,
+  `job_name` varchar(50) NOT NULL,
+  `create_date` datetime NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP,
+  `update_date` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+  `job_desc` varchar(255) DEFAULT NULL,
+  `job_status` int(1) NOT NULL DEFAULT '0',
+  `deleted_job` int(1) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `user`
+-- Dumping data for table `tjob_list`
 --
 
-INSERT INTO `user` (`userid`, `username`, `pin`, `status`) VALUES
-(1, 'wakanda', 12345678, 0),
-(2, 'hera', 87654321, 0);
+INSERT INTO `tjob_list` (`job_id`, `job_name`, `create_date`, `update_date`, `job_desc`, `job_status`, `deleted_job`) VALUES
+(101, 'Job Coba 1', '2018-03-13 06:31:33', '2018-03-13 06:31:33', 'Job saat ini digunakan untuk melakukan depalletizer line 1 Susu', 2, 0),
+(104, 'Job Coba 4', '2018-03-13 10:28:44', '2018-03-13 10:28:44', '                                   tes 2     ', 1, 0),
+(105, 'Job Coba 5', '2018-03-13 10:45:37', '2018-03-13 10:45:37', '                          you can see me              ', 0, 0),
+(106, 'Job Coba 6', '2018-03-13 10:22:40', '2018-03-13 10:22:40', NULL, 1, 0),
+(107, 'Test Risa', '0000-00-00 00:00:00', NULL, 'test masuk engga                                        ', 0, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tpallete`
+--
+
+CREATE TABLE `tpallete` (
+  `pallete_id` int(11) NOT NULL,
+  `pallete_number` int(11) NOT NULL DEFAULT '0',
+  `create_date` datetime NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP,
+  `update_date` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+  `job_id` int(11) NOT NULL,
+  `qty` int(11) NOT NULL DEFAULT '0',
+  `pallete_status` int(11) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tpallete`
+--
+
+INSERT INTO `tpallete` (`pallete_id`, `pallete_number`, `create_date`, `update_date`, `job_id`, `qty`, `pallete_status`) VALUES
+(122226789, 4, '0000-00-00 00:00:00', NULL, 101, 0, 0),
+(122256789, 3, '2018-03-08 17:57:41', '2018-03-08 17:57:41', 101, 0, 0),
+(122456789, 2, '2018-03-08 17:57:27', '2018-03-08 17:57:27', 101, 0, 0),
+(123456789, 1, '0000-00-00 00:00:00', NULL, 101, 0, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tuser`
+--
+
+CREATE TABLE `tuser` (
+  `userid` int(50) NOT NULL,
+  `username` varchar(50) NOT NULL,
+  `pin` int(8) NOT NULL,
+  `firstname` varchar(50) NOT NULL,
+  `lastname` varchar(50) DEFAULT NULL,
+  `role` varchar(50) NOT NULL,
+  `contact` bigint(13) DEFAULT NULL,
+  `status` int(50) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tuser`
+--
+
+INSERT INTO `tuser` (`userid`, `username`, `pin`, `firstname`, `lastname`, `role`, `contact`, `status`) VALUES
+(1, 'risa', 12345678, 'Risa', 'Aprilia', 'Manager', 6281573071855, 0),
+(2, 'galih', 87654321, 'Galih Ayu', 'Kinanti', 'Supervisor', 6282117051958, 0);
 
 --
 -- Indexes for dumped tables
@@ -223,16 +260,28 @@ ALTER TABLE `tbl_print`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `t_job_list`
+-- Indexes for table `tconfig`
 --
-ALTER TABLE `t_job_list`
+ALTER TABLE `tconfig`
+  ADD PRIMARY KEY (`device_id`,`serial_number`);
+
+--
+-- Indexes for table `tjob_list`
+--
+ALTER TABLE `tjob_list`
   ADD PRIMARY KEY (`job_id`);
 
 --
--- Indexes for table `user`
+-- Indexes for table `tpallete`
 --
-ALTER TABLE `user`
-  ADD PRIMARY KEY (`userid`);
+ALTER TABLE `tpallete`
+  ADD PRIMARY KEY (`pallete_id`);
+
+--
+-- Indexes for table `tuser`
+--
+ALTER TABLE `tuser`
+  ADD PRIMARY KEY (`userid`,`username`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -249,14 +298,14 @@ ALTER TABLE `datacamera`
 ALTER TABLE `tbl_print`
   MODIFY `id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
--- AUTO_INCREMENT for table `t_job_list`
+-- AUTO_INCREMENT for table `tjob_list`
 --
-ALTER TABLE `t_job_list`
-  MODIFY `job_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+ALTER TABLE `tjob_list`
+  MODIFY `job_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=108;
 --
--- AUTO_INCREMENT for table `user`
+-- AUTO_INCREMENT for table `tuser`
 --
-ALTER TABLE `user`
+ALTER TABLE `tuser`
   MODIFY `userid` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
