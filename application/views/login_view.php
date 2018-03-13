@@ -43,11 +43,8 @@
             <div class="col-md-8 col-md-offset-2 jumbotron">
                 <div class="col-md-8 col-md-offset-2 ">
                     <div class="col-md-2"></div>
-                    <div class="col-md-4">
-                        <img src="<?php echo base_url("img/logo/ETRONICS_LOGO_v1.0.png");?>" style="float:left;height:9%;width: 100%;"   class="img-responsive">
-                    </div>
-                    <div class="col-md-4">
-                        <img src="<?php echo base_url("img/logo/sarihusadapng.png");?>" style="float:right;height:10%;" class="img-responsive" >
+                    <div class="col-md-8">
+                        <img src="<?php echo base_url("img/logo/sarihusadapng.png");?>" style= height:15%;" class="img-responsive" >
                     </div>
                     <div class="col-md-2"></div>
                 </div>
@@ -62,9 +59,9 @@
                                 <?php } ?>
 
                             </select>
-
-
                                 <input type="text" id="code" name="code" required="required" maxlength="8" class="form-control" placeholder="PIN" style="margin-top: 1em;width: 10em" >
+                            <br>
+                            <button class="btn btn-success" style="float: right; ">Login</button>
                         </div>
 
                        <div class="col-md-6">
@@ -108,8 +105,10 @@
 
         <div class="footer_top"></div>
         <div class="footer">
-            <p class="col-md-6 float-left" style="text-align: left">V180503012018</p>
-            <p class="col-md-6 float-lg-right" style="text-align: right"> © Copyright By PT ETRONIKA MAHAKARYA TEKNOLOGI</p>
+            <div class="col-md-6 float-lg-left" style="text-align: left;padding-top: 6.5px;">
+                <img src="<?php echo base_url("img/logo/ETRONICS_LOGO_WHITE_v1.0.png");?>"  width="20%" class="img-responsive"  />
+            </div>
+            <p class="col-md-6 float-lg-right" style="text-align: right"> V180503012018<br>© Copyright By PT ETRONIKA MAHAKARYA TEKNOLOGI</p>
         </div>
     </div>
 
@@ -138,7 +137,7 @@
             $(".clock").html(currentTimeString);
 
             // Compose the string for display date
-            var currentDateString = date + "/" + month + "/"+ year;
+            var currentDateString = date + "/" + (month+1) + "/"+ year;
             $(".date").html(currentDateString);
         }, 1000);
     </script>

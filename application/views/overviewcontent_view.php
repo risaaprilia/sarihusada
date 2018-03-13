@@ -31,13 +31,13 @@
             <button class="btn btn-success" style="float: right;margin-top: 5px" onclick="add_job()"><i class="glyphicon glyphicon-plus"></i> Create Job</button>
             <br />
             <br />
-            <table id="table_id" class="table table-striped table-bordered" cellspacing="0" width="97%">
+            <table id="table_id" class="table table-striped " cellspacing="0" width="97%">
                 <thead>
                 <tr>
                     <th>Job ID</th>
                     <th>Date</th>
                     <th>Job Name</th>
-                    <th style="width:125px;">Action
+                    <th style="width:125px;">Delete/Purge
                         </p></th>
                 </tr>
                 </thead>
@@ -55,19 +55,8 @@
                         </td>
                     </tr>
                 <?php }?>
-
-
-
                 </tbody>
 
-                <tfoot>
-                <tr>
-                    <th>Job ID</th>
-                    <th>Date</th>
-                    <th>Job Name</th>
-                    <th>Action</th>
-                </tr>
-                </tfoot>
             </table>
 
 

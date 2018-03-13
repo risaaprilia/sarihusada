@@ -31,14 +31,14 @@
 
 
                 <!--Tab Printer Pallete-->
-            <form action="<?php echo site_url('Operation/start_job'); ?>" method="post" >
+            <form method="post">
                     <div class="col-md-6 form_login">
                         <label> Select Job : </label>
 <!--                        start of dropdown-->
-                        <select  id="start_job" name ="start_job" value="value" class="form-control"  required>
+                        <select  name="Job_id[]" id="start_job" class="form-control" style="width:100%" required>
                             <?php foreach ($job_list->result()as $row)
                             { ?>
-                                <option <?php echo $job_id=$row->job_id;?>" > <?php echo$row->job_name;  ?> </option>
+                                <option value="<?php echo $row->job_id;?>" > <?php echo$row->job_name;  ?> </option>
                             <?php } ?>
                         </select>
                     </div>
@@ -46,11 +46,28 @@
 <!--               start of button-->
                     <div class ="col-md-6" >
                         <br/><br/>
-<!--                        <button type="submit" class="btn btn-success"><a href="--><?php //echo site_url('Operation/start_job/'.$row->job_id.''); ?><!--"> START </button>-->
+                        <input type="submit" name="submit" class="btn btn-success" value="START">
+                        <input type="submit" name="stop" class="btn btn-success" value="STOP">
+
 <!--                        <button class="btn btn-success"><a href="--><?php //echo site_url('Operation/stop_job/'.$row->job_id.''); ?><!--"> STOP </button>-->
+
                     </div>
 <!--                end if button-->
                 </form>
+
+            <?php
+            if(isset($_POST['submit'])){
+                foreach ($_POST['Job_id'] as $select)
+                     redirect('Operation/start_job/'.$select.'');
+                    echo "Job " .$select. " Started";
+            }?>
+
+            <?php
+            if(isset($_POST['stop'])){
+                foreach ($_POST['Job_id'] as $select)
+                    redirect('Operation/stop_job/'.$select.'');
+                echo "Job " .$select. " Stopped";
+            }?>
 
             <br><br>
 

@@ -39,7 +39,9 @@
                 </li>
             </ul>
             <div id="myTabContent" class="tab-content">
-                <div role="tabpanel" class="tab-pane fade active in" id="tab_content1" aria-labelledby="device-tab">
+                <div role="tabpanel" class="tab-pane fade active in" id="tab_content1" aria-labelledby="device-tab" onscroll="width" {
+
+                }">
                     <div class="col-md-12 ">
                         <div class="col-md-5 device-box " style="margin-top:5px;margin-bottom: 5px;">
                             <div class="col-md-4">

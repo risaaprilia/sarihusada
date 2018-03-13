@@ -46,7 +46,7 @@
     </div>
     <div class="col-sm-5 wrap wrap3" style="margin-left: 5em">
         <div class="col-md-12">
-            <div class="col-md-8"> <h4>Camera</h4></div>
+            <div class="col-md-8"> <h4>Printer</h4></div>
             <div class="col-md-4">
                 <a href="#">
                     <img src="<?php echo base_url('img/icon/download.png')?>" width="30" height="30" style="float: right;margin-top: 1em">
@@ -62,10 +62,10 @@
         </div>
 
     </div>
-    <div class="col-md-11 wrap wrap3" style="margin-left: 2.7em">
+    <div class="col-sm-5 wrap wrap3" style="margin-left: 2.7em">
         <div class="col-md-12">
-            <div class="col-md-11"><h4>Serialization Station</h4></div>
-            <div class="col-md-1">
+            <div class="col-md-8"><h4>Camera</h4></div>
+            <div class="col-md-4">
                 <a href="#">
                     <img src="<?php echo base_url('img/icon/download.png')?>" width="30" height="30" style="float: right;margin-top: 1em">
                     <p style="float: right;font-size: 10px;">download</p>
@@ -74,8 +74,25 @@
         </div>
         <div class="col-md-12" style="margin-top: 0.5em">
             <textarea class="log" readonly>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab accusantium aspernatur at beatae cum cumque delectus fugit harum iusto nemo neque nostrum porro, praesentium quis soluta suscipit temporibus vel voluptate!
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab aspernatur distinctio dolores eligendi eum harum impedit minima molestias pariatur possimus, quia quisquam rem repellat repellendus sequi similique, veniam. Atque, voluptate.
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur neque obcaecati qui quo. Architecto consequatur cupiditate dolores ea excepturi inventore maiores molestias mollitia, quaerat quos sequi similique sunt tempora totam?
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab consequatur culpa excepturi labore, minima natus, nesciunt nisi odio officiis pariatur quisquam quod sapiente sunt totam vel, vitae voluptas! Debitis, dolor!
+            </textarea>
+        </div>
+    </div>
+    <div class="col-sm-5 wrap wrap3" style="margin-left: 5em">
+        <div class="col-md-12">
+            <div class="col-md-8"> <h4>Depalletizer Station</h4></div>
+            <div class="col-md-4">
+                <a href="#">
+                    <img src="<?php echo base_url('img/icon/download.png')?>" width="30" height="30" style="float: right;margin-top: 1em">
+                    <p style="float: right;font-size: 10px;">download</p>
+                </a>
+            </div>
+        </div>
+        <div class="col-md-12" style="margin-top: 0.5em">
+            <textarea class="log" readonly>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab, architecto aspernatur autem blanditiis consectetur dignissimos eius enim error eum eveniet molestiae nihil odio, odit quae, quasi rem repudiandae temporibus voluptate?
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad dignissimos ex expedita harum iusto labore laboriosam minima nemo, rerum tempora temporibus, vero voluptatum! Aspernatur dolorem necessitatibus quam quasi, soluta sunt.
             </textarea>
         </div>
 

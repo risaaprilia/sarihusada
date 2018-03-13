@@ -33,7 +33,7 @@ class Operation extends CI_Controller
     public function start_job($id)
     {
         $data = array(
-            'job_status' => 3,
+            'job_status' => 0,
         );
 
         $this->db->where('job_id', $id);
