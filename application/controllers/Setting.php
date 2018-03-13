@@ -20,9 +20,9 @@ class Setting extends CI_Controller {
         $this->load->model('user_model', '', TRUE);
         $this->load->library('session');
 //        session
-        if ($this->session->userdata('status') != 1) {
+//        if ($this->session->userdata('status') != 1) {
             redirect(base_url("Main"));
-        }
+//        }
 
     }
 
