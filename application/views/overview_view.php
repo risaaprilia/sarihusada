@@ -13,7 +13,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1"  media="(min-width:1024px) and (max-width: 1024px)" >
 
-    <title>| Depalletizer Station | </title>
+    <title>Depalletizer Station </title>
 
     <!-- Bootstrap -->
     <link href="<?php echo base_url("assets/bootstrap/dist/css/bootstrap.min.css"); ?>" rel="stylesheet">
@@ -49,7 +49,7 @@
             <div style="float:right">
 
                  <div class="clock" style="font-family: 'Arial Black';color: #0f0f0f;font-size: 24px;margin-right: 4px;"></div>
-                <div class="date" style="font: 'Arial Black';color: #0f0f0f;font-size: 18px;float:right"></div>
+                <div class="date" style="font:'Arial Black';color: #0f0f0f;font-size: 18px;float:right"></div>
 <!--            </div>-->
         </div>
     </div>
@@ -111,8 +111,6 @@
 <script src="<?php echo base_url("assets/js/custom.min.js"); ?>"></script>
 <!--clock-->
 <!--<script  language="JavaScript" src="--><?php //echo base_url("assets/js/jquery.min.js");?><!--"> </script>-->
-
-
 
 </body>
 </html>

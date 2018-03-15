@@ -12,9 +12,9 @@ class log extends CI_Controller {
         parent::__construct();
         $this->load->helper('form','url');
 //        session
-//        if($this->session->userdata('status')!= 1){
+        if($this->session->userdata('status')!= 1){
             redirect(base_url("Main"));
-//        }
+        }
     }
 
     public function display()

@@ -39,13 +39,12 @@
                 </li>
             </ul>
             <div id="myTabContent" class="tab-content">
-                <div role="tabpanel" class="tab-pane fade active in" id="tab_content1" aria-labelledby="device-tab" onscroll="width" {
-
-                }">
+                <!-- Setting -> Device Tab -->
+                <div role="tabpanel" class="tab-pane fade active in" id="tab_content1" aria-labelledby="device-tab" >
                     <div class="col-md-12 ">
                         <div class="col-md-5 device-box " style="margin-top:5px;margin-bottom: 5px;">
                             <div class="col-md-4">
-                                <img src="<?php echo base_url("img/device/weber-print-apply.jpg")?>" width="80" height="80">
+                                <img src="<?php echo base_url("img/device/printer-pallet.jpeg")?>" width="80" height="80">
 <!--                                <label style="font-size: 9px">CONNECTED</label><span class="fa fa-circle" style="color: #00CC00"></span>-->
 <!--                                <label style="font-size:9px;display: none;">NOT CONNECT</label><span class="fa fa-circle" style="color:red;display: none; "></span>-->
                             </div>
@@ -108,24 +107,17 @@
                                 <?php }?>
                             </div>
                         </div>
-
                     </div>
-                </div>
+            </div>
+<!--                Setting -> Backup Tab-->
                 <div role="tabpanel" class="tab-pane fade" id="tab_content3" aria-labelledby="backup-tab">
                    <div class="col-md-12">
-                       <div class="col-md-5 device-box " style="margin-top: 5px;margin-bottom: 5px;">
-                           <button class="btn btn-primary button-backup" style="margin-top: 1em;margin-left: 6em;">FULL BACKUP</button>
-                           <br>
-                           <label style="margin-left: 4em;"> Last Full Backup: dd/mm/yy </label>
-                       </div>
-                           <div class="col-md-5 device-box " style="margin-top: 5px;margin-bottom: 5px;">
-                               <button class="btn btn-primary button-backup" style="margin-top: 1em;margin-left: 3.3em;width: 16em">INCREMENTAL BACKUP</button>
-                               <br>
-                               <label style="margin-left: 3em;"> Last Incremental Backup: dd/mm/yy</label>
-                           </div>
+                       <h4> Backup Log</h4>
+
+
                    </div>
                 </div>
-
+                <!--Setting -> Profile Tab-->
                 <div role="tabpanel" class="tab-pane fade" id="tab_content4" aria-labelledby="profile-tab">
                     <?php foreach ($data_profile->result() as $row) {?>
                     <div class="col-md-12">
@@ -142,7 +134,7 @@
                             <label>Role <span class="required">*</span></label>
                         </div>
                         <div class="col-md-5">
-                            <input type="text"  required="required" style="width: 20em"  placeholder="<?php echo $row->role;?>" readonly>
+                            <input type="text"  required="required" style="width: 20em"  placeholder="<?php echo $row->roleid;?>" readonly>
                         </div>
                       </div>
 

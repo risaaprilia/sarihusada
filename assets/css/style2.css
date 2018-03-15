@@ -9,6 +9,9 @@
      font-size: 2em;
      border: 1px solid #000;
  }
+ .font_table{
+     font-size: 18px;
+ }
 
  body{
      background: #ffffff;
@@ -384,7 +387,7 @@ label{
 
 .cd-popup{
     opacity: 0;
-    visibility: 0;
+    visibility:0;
     transition: opacity 0.3s 0s,visibility 0s 0.3s;
 }
 

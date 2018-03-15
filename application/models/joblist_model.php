@@ -23,6 +23,12 @@ class joblist_model extends CI_Model
         return $query;
     }
 
+    public function get_starting_jobs()
+    {
+        $query=$this->db->query("select * from tjob_list WHERE job_status = 1");
+        return $query;
+    }
+
 
     public function get_by_id($id)
     {

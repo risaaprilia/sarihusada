@@ -25,18 +25,18 @@
 
 <div style="margin-top: 3em"></div>
 <!--Body Overview-->
+<div class="row">
 <div class="col-md-12 body_box" >
     <div class="col-md-12 wrap">
             </center>
             <button class="btn btn-success" style="float: right;margin-top: 5px" onclick="add_job()"><i class="glyphicon glyphicon-plus"></i> Create Job</button>
             <br />
             <br />
-            <table id="table_id" class="table table-striped " cellspacing="0" width="97%">
-                <thead>
-                <tr>
-                    <th>Job ID</th>
-                    <th>Date</th>
-                    <th>Job Name</th>
+            <table id="table_id" class="table table-striped table-responsive" cellspacing="0" width="97%" style="font-size:13px;">
+                <thead >
+                <tr >
+                    <th style="font-size: 14px;">Created Date</th>
+                    <th style="font-size: 14px;">Job Name</th>
                     <th style="width:125px;">Delete/Purge
                         </p></th>
                 </tr>
@@ -44,7 +44,6 @@
                 <tbody>
                 <?php foreach($data_table->result() as $row){?>
                     <tr>
-                        <td><?php echo $row->job_id;?></td>
                         <td><?php echo $row->create_date;?></td>
                         <td><?php echo $row->job_name;?></td>
 
@@ -62,9 +61,7 @@
 
     </div>
 </div>
-
-
-
+</div>
 
         <script type="text/javascript">
             $(document).ready( function () {
@@ -164,6 +161,14 @@
                 }
             }
 
+        </script>
+
+        <script>
+            $(document).ready( function() {
+                $('table_id').dataTable( {
+                    "iDisplayLength": 5,
+                } );
+            } )
         </script>
 
         <!-- Bootstrap modal -->

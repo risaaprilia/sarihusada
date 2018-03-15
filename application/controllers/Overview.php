@@ -13,9 +13,9 @@ class Overview extends CI_Controller {
         $this->load->model('job_table','',TRUE);
         $this->load->model('joblist_model','',TRUE);
 
-//        if($this->session->userdata('status')!= 1){
+        if($this->session->userdata('status')!= 1){
             redirect(base_url("Main"));
-//        }
+        }
     }
 
     public function display()
@@ -38,6 +38,7 @@ class Overview extends CI_Controller {
         $data = array(
           'job_name' => $this->input->post('job_name'),
             'job_desc' => $this->input->post('job_desc'),
+            'job_status' => 0,
 
         );
         $insert = $this->joblist_model->insert_jobs($data);
