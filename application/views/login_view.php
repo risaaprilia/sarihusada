@@ -59,9 +59,9 @@
                                 <?php } ?>
 
                             </select>
-                                <input type="text" id="code" name="code" required="required" maxlength="8" class="form-control" placeholder="PIN" style="margin-top: 1em;width: 10em" >
+                                <input type="text" id="code" name="code" required="required" maxlength="8" class="form-control" placeholder="PIN"  autocomplete="off" style="margin-top: 1em;width: 10em" >
                             <br>
-                            <button class="btn btn-success" style="float: right; ">Login</button>
+                            <button class="btn btn-success text-center" > Login </button>
                         </div>
 
                        <div class="col-md-6">
@@ -89,7 +89,7 @@
                                    </tr>
                                </table>
                        </div>
-                    <p id="message">Logging in ...</p>
+<!--                    <p id="message">Logging in ...</p>-->
 
                     </form>
 
@@ -149,7 +149,7 @@
             function addCode(key)
             {
                 var code = document.forms[0].code;
-                if(code.value.length < 8 ){
+                if(code.value.length < 9 ){
                     code.value = code.value + key;
 
                 }
@@ -180,6 +180,8 @@
         function emptyCode(){
             document.forms[0].code.value = "";
         }
+
+
     </script>
 
 
