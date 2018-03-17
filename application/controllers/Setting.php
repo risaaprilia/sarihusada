@@ -26,9 +26,6 @@ class Setting extends CI_Controller {
 
     }
 
-
-
-
     public function display()
     {
         $userid = 1;
@@ -40,10 +37,12 @@ class Setting extends CI_Controller {
         $data['data_table1']=$this->setting_model->get_all_config();
         $data['data_table2']=$this->setting_model->get_all_config_2();
         $data['data_table3']=$this->setting_model->get_all_config_3();
-
+        $data['data_backup']=$this->setting_model->get_backup_data();
         $data['data_profile']=$this->setting_model->get_profile($userid);
         $this->load->view('overview_view',$data);
     }
+
+
 
 }
 

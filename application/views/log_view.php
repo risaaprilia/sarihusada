@@ -20,7 +20,6 @@
     <div class="col-md-2" >
         <a href="<?php echo base_url('index.php/Main/logout');?> "><button class="button_logout">LOGOUT</button></a>
     </div>
-
 </div>
 <!--/Log Tittle-->
 
@@ -38,9 +37,9 @@
             </div>
         </div>
         <div class="col-md-12" style="margin-top: 0.5em">
-            <textarea class="log" readonly>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur neque obcaecati qui quo. Architecto consequatur cupiditate dolores ea excepturi inventore maiores molestias mollitia, quaerat quos sequi similique sunt tempora totam?
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab consequatur culpa excepturi labore, minima natus, nesciunt nisi odio officiis pariatur quisquam quod sapiente sunt totam vel, vitae voluptas! Debitis, dolor!
+            <textarea class="log"  readonly>
+                <?php echo readfile("log/3-14-2018_10-54_System.txt");?>
+
             </textarea>
         </div>
     </div>
@@ -99,3 +98,21 @@
     </div>
 </div>
 <!--/Body Overview-->
+
+<script>
+    var time = 0;
+    setInterval(function() {
+        $.ajax({
+            type: "POST",
+            data: {time : time},
+            url: "log/fileupdate.php",
+            success: function (data) {
+                var result = $.parseJSON(data)
+                if (result.content) {
+                    $('#file_content').append('<br>' + result.content);
+                }
+                time = result.time;
+            }
+        });
+    }, 1000);
+</script>

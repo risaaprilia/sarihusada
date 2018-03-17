@@ -112,7 +112,38 @@
 <!--                Setting -> Backup Tab-->
                 <div role="tabpanel" class="tab-pane fade" id="tab_content3" aria-labelledby="backup-tab">
                    <div class="col-md-12">
-                       <h4> Backup Log</h4>
+                      <!--                       Start of table backup-->
+                       <div class="col-md-8">
+
+                           <table  class="table table-striped table-responsive" cellspacing="0" width="97%" style="font-size:13px;">
+                               <thead >
+                               <tr >
+                                   <th style="font-size: 14px;">Date</th>
+                                   <th style="font-size: 14px;">Backup Name</th>
+                                   <th style="font-size:14px;">Backup By</th>
+                               </tr>
+                               </thead>
+                               <tbody>
+                               <?php foreach($data_backup->result() as $row){?>
+                                   <tr>
+                                       <td><?php echo $row->create_date;?></td>
+                                       <td><?php echo $row->backupname;?></td>
+                                       <td><?php echo $row->username;?></td>
+                                   </tr>
+                               <?php }?>
+                               </tbody>
+
+                           </table>
+                       </div>
+<!--                       End of Table backup-->
+                       <div class="col-md-4 ">
+                           <div class="col-md-12">
+                                <button class="btn btn-success "> Backup</button>
+                           </div>
+                           <div class="col-md-12">
+
+                           </div>
+                       </div>
 
 
                    </div>
@@ -134,7 +165,7 @@
                             <label>Role <span class="required">*</span></label>
                         </div>
                         <div class="col-md-5">
-                            <input type="text"  required="required" style="width: 20em"  placeholder="<?php echo $row->roleid;?>" readonly>
+                            <input type="text"  required="required" style="width: 20em"  placeholder="<?php echo $row->rolename;?>" readonly>
                         </div>
                       </div>
 

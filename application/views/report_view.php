@@ -30,12 +30,12 @@
     <div class="wrap">
         <div class="col-md-12">
             <label style="margin-top: 2em" >JOB</label>
-                <select  class="form-control" style="width: 100%" required >
-                    <option value="">Choose..</option>
-                    <option value="press">Press</option>
-                    <option value="net">Internet</option>
-                    <option value="mouth">Word of mouth</option>
-                </select>
+            <select  class="form-control" style="width: 100%" required >
+                    <?php foreach ($job_list->result() as $row){?>
+                    <option value="<?php echo $row -> job_id; ?>"><?php echo $row->job_name?></option>
+                    <?php }?>
+            </select>
+
         </div>
         <div class="col-md-12">
             <label style="margin-top: 1em">STATUS</label>

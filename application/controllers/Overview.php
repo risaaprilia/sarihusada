@@ -45,24 +45,6 @@ class Overview extends CI_Controller {
         echo json_encode(array("status"=>TRUE));
     }
 
-
-    public function ajax_edit($id)
-    {
-        $data = $this->joblist_model->get_by_id($id);
-        echo json_decode($data);
-    }
-
-    public function update_job()
-    {
-        $data = array(
-            'job_id'=> $this->input->post('job_id'),
-            'job_name' => $this->input->post('job_name'),
-//            'job_desc' => $this->input->post('job_desc'),
-        );
-        $this->joblist_model->update_job(array('job_id' => $this->input->post('job_id')), $data);
-        echo json_encode(array("status" => TRUE));
-    }
-
     public function delete_job($id)
     {
         $this->joblist_model->delete_by_id($id);
@@ -72,7 +54,7 @@ class Overview extends CI_Controller {
     public function update_data($id)
     {
         $data = array(
-            'job_status' => 2,
+            'deleted_job' => 't',
         );
 
         $this->db->where('job_id', $id);
@@ -80,8 +62,5 @@ class Overview extends CI_Controller {
         $this->session->set_flashdata('message', 'Your data deleted Successfully..');
         redirect('Overview/display');
     }
-
-
-
 
 }

@@ -29,7 +29,13 @@ class setting_model extends CI_Model
 
     public function get_profile($id)
     {
-        $query = $this->db->query("select * from tuser WHERE userid=$id");
+        $query = $this->db->query("select * from tuser, trole WHERE tuser.userid= $id AND tuser.roleid = trole.roleid");
+        return $query;
+    }
+
+    public function get_backup_data()
+    {
+        $query = $this->db->query("select * from tbackup , tuser WHERE tbackup.userid = tuser.userid");
         return $query;
     }
 }

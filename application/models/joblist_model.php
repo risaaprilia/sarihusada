@@ -13,7 +13,7 @@ class joblist_model extends CI_Model
 
     public function get_all_jobs()
     {
-        $query=$this->db->query("select * from tjob_list WHERE job_status!=2 ");
+        $query=$this->db->query("select * from tjob_list WHERE deleted_job!='t' ");
         return $query;
     }
 

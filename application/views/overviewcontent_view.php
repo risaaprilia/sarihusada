@@ -37,7 +37,7 @@
                 <tr >
                     <th style="font-size: 14px;">Created Date</th>
                     <th style="font-size: 14px;">Job Name</th>
-                    <th style="width:125px;">Delete/Purge
+                    <th style="width:125px;font-size:14px;">Action
                         </p></th>
                 </tr>
                 </thead>
@@ -149,7 +149,6 @@
                         dataType: "JSON",
                         success: function(data)
                         {
-
                             location.reload();
                         },
                         error: function (jqXHR, textStatus, errorThrown)

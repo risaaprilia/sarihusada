@@ -23,4 +23,19 @@ class log extends CI_Controller {
         $this->load->view('overview_view',$data);
     }
 
+    public function logView(){
+        $file = 'log/3-14-2018_10-54_System.log';
+        $last_modify_time = 0;
+        while (true) {
+            sleep(1); // 1 s
+            clearstatcache(true, $file);
+            $curr_modify_time = filemtime($file);
+            if ($last_modify_time < $curr_modify_time) {
+                echo file_get_contents($file);
+            }
+
+            $last_modify_time = $curr_modify_time;
+        }
+    }
+
 }
