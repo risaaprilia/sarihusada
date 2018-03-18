@@ -28,39 +28,73 @@
 <!--Body Overview-->
 <div class="col-md-12 body_box" >
     <div class="wrap">
+        <form method="post">
         <div class="col-md-12">
             <label style="margin-top: 2em" >JOB</label>
-            <select  class="form-control" style="width: 100%" required >
+            <select  class="form-control" name="Job_id[]"style="width: 100%" required >
                     <?php foreach ($job_list->result() as $row){?>
-                    <option value="<?php echo $row -> job_id; ?>"><?php echo $row->job_name?></option>
+                    <option value="<?php echo $row->job_id; ?>"><?php echo $row->job_id ?> - <?php echo $row->job_name?></option>
                     <?php }?>
             </select>
 
         </div>
         <div class="col-md-12">
             <label style="margin-top: 1em">STATUS</label>
-            <select  class="form-control" required >
-                <option value="">Choose..</option>
-                <option value="press">Press</option>
-                <option value="net">Internet</option>
-                <option value="mouth">Word of mouth</option>
+            <select  class="form-control" name="Status[]" required >
+                <option value="0">All</option>
+                <option value="1">Printed</option>
+                <option value="2">Verify</option>
+                <option value="3">Others..</option>
             </select>
 
-            <button style="float: right;" class="btn btn-primary">View</button>
+            <input type="submit" name="view" id="button_view" value="View" class="btn btn-primary" style="float: right;">
         </div>
-
+        </form>
         <div class="col-md-12">
-            <textarea class="report"  readonly>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab, accusantium commodi corporis, delectus dicta doloremque error excepturi impedit incidunt ipsa modi neque nesciunt officiis pariatur quam, ratione sunt vero voluptatum.
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum dolor fugit iusto libero ratione repellat veniam vitae voluptas? Beatae deserunt dicta dignissimos doloremque minus modi obcaecati rem repellendus rerum velit.
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus architecto esse est eveniet exercitationem ipsam itaque, labore magnam nemo neque, nihil omnis perspiciatis placeat quam, quo? Consequatur distinctio molestiae velit?
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis commodi labore magni mollitia quae quidem voluptatibus. A, aperiam autem itaque maxime nulla, perspiciatis provident quasi, quod sunt vel voluptas voluptate.
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut beatae blanditiis culpa dolores dolorum ex facilis, magni, odit perferendis rerum saepe sequi tempore veritatis. Ab deserunt ducimus ea repudiandae voluptatibus?
-            </textarea>
+            <table id="tableView" class="table table-striped table-bordered nowrap" cellspacing="0" width="100%"   >
+                <thead>
+                <tr>
+                    <th style="font-size: 14px;" >Code</th>
+                    <th style="font-size: 14px;">Print Date</th>
+                    <th style="font-size: 14px;">Verify Date</th>
+                    <th style="font-size: 14px;">Status</th>
+                </tr>
+                </thead>
+                <tbody>
+
+                <?php if($data_table === 1){
+
+                foreach ($table_view->result() as $row){?>
+                <tr>
+                    <td style="font-size: 14px;"><?php echo $row->JobID;?></td>
+                    <td style="font-size: 14px;"><?php echo $row->ProductionDate;?></td>
+                    <td style="font-size: 14px;"><?php echo $row->CreatedDateTime;?></td>
+                    <td style="font-size: 14px;"><?php echo $row->Status;?></td>
+                </tr>
+                <?php }} ?>
+                </tbody>
+            </table>
+
         </div>
-
-
-
     </div>
 </div>
 <!--/Body Overview-->
+
+<?php
+if(isset($_POST['view'])){
+    foreach ($_POST['Job_id'] as $select)
+        foreach ($_POST ['Status'] as $status)
+            redirect('Report/view_job/'.$select.'/'.$status.'');
+}?>
+
+<script>
+    $(document).ready(function() {
+        $('#tableView').DataTable( {
+            "searching": false,
+            "paging": true,
+            "info": false,
+            "lengthChange":false,
+            "pageLength": 5
+        } );
+    } );
+</script>
