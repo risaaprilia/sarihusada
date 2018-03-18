@@ -26,6 +26,7 @@
 <!--    <link href="--><?php //echo base_url('assets/bootstrap/css/bootstrap.min.css')?><!--" rel="stylesheet">-->
     <link href="<?php echo base_url('assets/datatables/css/dataTables.bootstrap.css')?>" rel="stylesheet">
     <link href="<?php echo base_url('assets/bootstrap-toggle-master/css/bootstrap-toggle.min.css')?>" rel="stylesheet">
+    <link href="<?php echo base_url('assets/css/buttons.dataTables.min.css')?>" rel="stylesheet">
     <script src="<?php echo base_url('assets/bootstrap-toggle-master/js/bootstrap-toggle.min.js')?>"></script>
 
 
@@ -33,7 +34,14 @@
     <script src="<?php echo base_url('assets/bootstrap/js/bootstrap.min.js')?>"></script>
     <script src="<?php echo base_url('assets/datatables/js/jquery.dataTables.min.js')?>"></script>
     <script src="<?php echo base_url('assets/datatables/js/dataTables.bootstrap.js')?>"></script>
-
+<!--   Start of pdf, csv button-->
+    <script src="<?php echo base_url('assets/datatables/js/buttons.print.min.js')?>"></script>
+    <script src="<?php echo base_url('assets/datatables/js/buttons.html5.min.js')?>"></script>
+    <script src="<?php echo base_url('assets/datatables/js/vfs_fonts.js')?>"></script>
+    <script src="<?php echo base_url('assets/datatables/js/pdfmake.min.js')?>"></script>
+    <script src="<?php echo base_url('assets/datatables/js/jszip.min.js')?>"></script>
+    <script src="<?php echo base_url('assets/datatables/js/buttons.flash.min.js')?>"></script>
+    <script src="<?php echo base_url('assets/datatables/js/dataTables.buttons.min.js')?>"></script>
 
 </head>
 <body>

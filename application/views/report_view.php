@@ -51,15 +51,13 @@
         </div>
         </form>
         <div class="col-md-12">
-            <table id="tableView" class="table table-striped table-bordered nowrap" cellspacing="0" width="100%"   >
-                <thead>
-                <tr>
+            <table id="tableView" class="table table-striped nowrap" cellspacing="0" width="97%"   >
+                <thead><tr>
                     <th style="font-size: 14px;" >Code</th>
                     <th style="font-size: 14px;">Print Date</th>
                     <th style="font-size: 14px;">Verify Date</th>
                     <th style="font-size: 14px;">Status</th>
-                </tr>
-                </thead>
+                </tr></thead>
                 <tbody>
 
                 <?php if($data_table === 1){
@@ -94,7 +92,12 @@ if(isset($_POST['view'])){
             "paging": true,
             "info": false,
             "lengthChange":false,
-            "pageLength": 5
+            "pageLength": 5,
+//button csv, pdf
+            dom: 'Bfrtip',
+            buttons: [
+                'csv', 'pdf'
+            ]
         } );
     } );
 </script>
