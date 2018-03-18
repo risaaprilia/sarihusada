@@ -17,6 +17,7 @@ class Operation extends CI_Controller
 
         $this->load->model('job_table','',TRUE);
         $this->load->model('joblist_model','',TRUE);
+        $this->load->model('config_model','',TRUE);
 //        session
         if ($this->session->userdata('status') != 1) {
             redirect(base_url("Main"));
@@ -25,9 +26,29 @@ class Operation extends CI_Controller
 
     public function display()
     {
-        $data['job_list'] = $this->joblist_model->get_all_jobs();
+        $value = $this->joblist_model->check_job_status2();
+//        $status = mysql_fetch_array($value);
+                $status = $value->job_status;
+        if( $status == 1) {
+//            if job status =1
+            $data['job_list'] = $this->joblist_model->get_starting_jobs();
+            $data['status_lamp'] = '1';
+
+        }else{
+            //            if query null
+
+            $data['job_list'] = $this->joblist_model->get_all_jobs();
+            $data['status_lamp'] ='0';
+
+
+        }
+
+        $data['device_pallet']= $this->config_model->get_printer_pallet(); //pallete 1
+        $data['device_bag']= $this->config_model->get_printer_bag(); //bag 2
+        $data['device_camera']= $this->config_model->get_camera();// camera 3
         $data['content_view'] = "operation_view.php";
         $this->load->view('overview_view', $data);
+
     }
 
     public function start_job($id)
@@ -39,7 +60,12 @@ class Operation extends CI_Controller
         $this->db->where('job_id', $id);
         $this->db->update('tjob_list', $data);
 
+//        same as display
+        $data_start['device_pallet']= $this->config_model->get_printer_pallet(); //pallete 1
+        $data_start['device_bag']= $this->config_model->get_printer_bag(); //bag 2
+        $data_start['device_camera']= $this->config_model->get_camera();// camera 3
         $data_start['job_list'] = $this->joblist_model->get_starting_jobs();
+        $data_start['status_lamp'] = '1';
         $data_start['content_view'] = "operation_view.php";
         $this->load->view('overview_view', $data_start);
 
@@ -54,7 +80,15 @@ class Operation extends CI_Controller
 
         $this->db->where('job_id', $id);
         $this->db->update('tjob_list', $data);
-        redirect('Operation/display');
+
+//        same as display
+        $data_start['device_pallet']= $this->config_model->get_printer_pallet(); //pallete 1
+        $data_start['device_bag']= $this->config_model->get_printer_bag(); //bag 2
+        $data_start['device_camera']= $this->config_model->get_camera();// camera 3
+        $data_start['job_list'] = $this->joblist_model->get_all_jobs();
+        $data_start['status_lamp'] = '0';
+        $data_start['content_view'] = "operation_view.php";
+        $this->load->view('overview_view', $data_start);
 
     }
 }

@@ -42,8 +42,11 @@ class Overview extends CI_Controller {
 
         );
         $insert = $this->joblist_model->insert_jobs($data);
+        $this->joblist_model->create_new_table($insert);
+
         echo json_encode(array("status"=>TRUE));
     }
+
 
     public function delete_job($id)
     {

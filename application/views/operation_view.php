@@ -32,19 +32,37 @@
                     <div class="col-md-6 form_login">
                         <label> Select Job : </label>
 <!--                        start of dropdown-->
-                        <select  name="Job_id[]" id="start_job" class="form-control" style="width:100%" required>
-                            <?php foreach ($job_list->result()as $row)
-                            { ?>
-                                <option value="<?php echo $row->job_id;?>" > <?php echo$row->job_name;  ?> </option>
-                            <?php } ?>
-                        </select>
+                        <?php
+                        if ($status_lamp == '1'):?>
+                            <select  readonly="readonly" name="Job_id[]" id="start_job" class="form-control" style="width:100%" required>
+                                <?php foreach ($job_list->result()as $row)
+                                { ?>
+                                    <option value="<?php echo $row->job_id;?>" > <?php echo$row->job_name;  ?> </option>
+                                <?php } ?>
+                            </select>
+
+                        <?php else: ?>
+                            <select  name="Job_id[]" id="start_job" class="form-control" style="width:100%" required>
+                                <?php foreach ($job_list->result()as $row)
+                                { ?>
+                                    <option value="<?php echo $row->job_id;?>" > <?php echo$row->job_name;  ?> </option>
+                                <?php } ?>
+                            </select>
+                        <?php endif;?>
+
                     </div>
 <!--                end of dropdown-->
 <!--               start of button-->
                     <div class ="col-md-6" >
                         <br/><br/>
-                         <input type="submit" name="submit" class="btn btn-success" value="START" id="button_start" >
-                        <input type="submit" name="stop" class="btn btn-success" value="STOP" id="button_stop" >
+                        <?php
+                        if ($status_lamp == '1'):?>
+                         <input type="submit"  class="btn btn-success disabled" value="START"  >
+                        <input type="submit" name="stop" class="btn btn-success " value="STOP" id="button_stop" >
+                        <?php else: ?>
+                        <input type="submit" name="submit" class="btn btn-success" value="START" id="button_start" >
+                        <input type="submit"  class="btn btn-success disabled" value="STOP"  >
+                        <?php endif;?>
                   </div>
 <!--                end if button-->
                 </form>
@@ -65,17 +83,16 @@
                                 <div class="col-md-8">
 <!--                                    Start Of status lamp-->
                                     <div class="col-md-8">
-<!--                                        --><?php //foreach ($job_list-> result()as $row){
-//                                               $job_status =  $row->job_status;
-//                                        if ($job_status == 1){?>
-<!--                                        <button class="btn btn-success"> Start </button>-->
-<!--                                        <button class="btn btn-warning disabled" > Warn </button>-->
-<!--                                        <button class="btn btn-danger disabled"> Stop </button>-->
-<!--                                        --><?php //} else  { ?>
-                                            <button class="btn btn-success disabled"> Start </button>
+                                        <?php
+                                        if ($status_lamp == '1'):?>
+                                        <button class="btn btn-success"> Started </button>
+                                        <button class="btn btn-warning disabled" > Warn </button>
+                                        <button class="btn btn-danger disabled"> Stopped </button>
+                                        <?php else: ?>
+                                            <button class="btn btn-success disabled"> Started </button>
                                             <button class="btn btn-warning disabled" > Warn </button>
-                                            <button class="btn btn-danger disabled"> Stop </button>
-<!--                                        --><?php // }}?>
+                                            <button class="btn btn-danger "> Stopped </button>
+                                        <?php endif;?>
                                     </div>
 <!--                                    End Of Status Lamp-->
 
@@ -98,17 +115,19 @@
                                     </div>
                                 </div>
                                 <div class="col-md-4">
+                                    <?php foreach ($device_pallet->result()as $pallet){?>
                                    <div class="col-md-12">
-                                       <input type="text" placeholder="Printer Pallet" readonly>
+                                       <input type="text" placeholder="<?php echo $pallet-> device_names?>" readonly class="text-center">
                                    </div>
                                     <div class="col-md-12">
                                         <br><br>
                                         <img src="<?php echo base_url("img/device/printer-pallet.jpeg")?>" width="80%" height="auto">
                                     </div>
                                     <div class="col-md-12">
-                                        <label> IP Port </label>
-                                        <input type="text" placeholder="IP" readonly>
+
+                                        <input type="number" placeholder="IP : <?php echo $pallet->ip_address?>" readonly>
                                     </div>
+                                    <?php }?>
                                 </div>
 
                             </div>
@@ -118,9 +137,16 @@
 <!--                            Tab Printer Bag-->
                             <div class="col-md-12 ">
                                 <div class="col-md-8">
-                                    <button class="btn btn-success disabled"> Start </button>
-                                    <button class="btn btn-warning disabled" > Warn </button>
-                                    <button class="btn btn-danger disabled"> Stop </button>
+                                    <?php
+                                    if ($status_lamp == '1'):?>
+                                        <button class="btn btn-success"> Started </button>
+                                        <button class="btn btn-warning disabled" > Warn </button>
+                                        <button class="btn btn-danger disabled"> Stopped </button>
+                                    <?php else: ?>
+                                        <button class="btn btn-success disabled"> Started </button>
+                                        <button class="btn btn-warning disabled" > Warn </button>
+                                        <button class="btn btn-danger "> Stopped </button>
+                                    <?php endif;?>
 
                                 <div class="col-md-12">
                                     <br><br>
@@ -142,16 +168,18 @@
 
                                 <div class="col-md-4">
                                     <div class="col-md-12">
-                                        <input type="text" placeholder="Printer Bag" readonly>
+                                        <?php foreach ($device_bag->result() as $bag){?>
+                                        <input type="text" placeholder="<?php echo $bag->device_names?>" readonly class="text-center">
                                     </div>
                                     <div class="col-md-12">
                                         <br><br>
                                         <img src="<?php echo base_url("img/device/weber-print-apply.jpg")?>" width="80%" height="auto">
                                     </div>
                                     <div class="col-md-12">
-                                        <label> IP Port </label>
-                                        <input type="text" placeholder="IP" readonly>
+
+                                        <input type="text" placeholder="IP : <?php echo $bag->ip_address?>" readonly>
                                     </div>
+                                    <?php }?>
                                 </div>
                             </div>
                         </div>
@@ -160,9 +188,16 @@
 <!--                            Tab Camera-->
                             <div class="col-md-12 ">
                                 <div class="col-md-8">
-                                    <button class="btn btn-success disabled"> Start </button>
-                                    <button class="btn btn-warning disabled" > Warn </button>
-                                    <button class="btn btn-danger disabled"> Stop </button>
+                                    <?php
+                                    if ($status_lamp == '1'):?>
+                                        <button class="btn btn-success"> Started </button>
+                                        <button class="btn btn-warning disabled" > Warn </button>
+                                        <button class="btn btn-danger disabled"> Stopped </button>
+                                    <?php else: ?>
+                                        <button class="btn btn-success disabled"> Started </button>
+                                        <button class="btn btn-warning disabled" > Warn </button>
+                                        <button class="btn btn-danger "> Stopped </button>
+                                    <?php endif;?>
 
                                     <div class="col-md-12">
                                         <br><br>
@@ -182,17 +217,19 @@
                                     </div>
                                 </div>
                                 <div class="col-md-4">
+                                    <?php foreach ($device_camera->result() as $camera){?>
                                     <div class="col-md-12">
-                                        <input type="text" placeholder="Camera Name" readonly>
+                                        <input type="text" placeholder="<?php echo $camera->device_names;?>" readonly class="text-center">
                                     </div>
                                     <div class="col-md-12">
                                         <br><br>
                                         <img src="<?php echo base_url("img/device/teledyne-camera.jpg")?>" width="80%" height="auto">
                                     </div>
                                     <div class="col-md-12">
-                                        <label> IP Port </label>
-                                        <input type="text" placeholder="IP" readonly>
+
+                                        <input type="text" placeholder="IP: <?php echo $camera->ip_address?>" readonly>
                                     </div>
+                                    <?php }?>
                                 </div>
                             </div>
                         </div>

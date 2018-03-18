@@ -110,9 +110,12 @@
             function save()
             {
                 var url;
+                var url2;
                 if(save_method == 'add')
                 {
                     url = "<?php echo base_url('index.php/Overview/create_job')?>";
+//                    url2= "<?php //echo base_url('index.php/Overview/create_table')?>//";
+
                 }
                 else if(save_method == 'update')
                 {

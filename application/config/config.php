@@ -24,7 +24,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |
 */
 $config['base_url'] = 'http://localhost/ETRONIKA/sarihusada/';
-$config['href'] = 'http://localhost/'.$_SERVER['HTTP_HOST'];
+
 
 /*
 |--------------------------------------------------------------------------
