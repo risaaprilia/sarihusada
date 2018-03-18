@@ -28,7 +28,7 @@
 <div class="col-md-12 body_box" style="float: right" >
     <div class="col-sm-5 wrap wrap3" style="margin-left: 2.7em">
         <div class="col-md-12">
-            <div class="col-md-8"><h4>Printer</h4></div>
+            <div class="col-md-8"><h4> Palet</h4></div>
             <div class="col-md-4">
                 <a href="#">
                     <img src="<?php echo base_url('img/icon/download.png')?>" width="30" height="30" style="float: right;margin-top: 1em">
@@ -37,15 +37,15 @@
             </div>
         </div>
         <div class="col-md-12" style="margin-top: 0.5em">
-            <textarea class="log"  readonly>
-                <?php echo readfile("log/3-14-2018_10-54_System.txt");?>
+            <textarea class="log -align-left"  readonly>
+<?php echo readfile("logs/id_palet/001_ID_Palet.log");?>
 
             </textarea>
         </div>
     </div>
     <div class="col-sm-5 wrap wrap3" style="margin-left: 5em">
         <div class="col-md-12">
-            <div class="col-md-8"> <h4>Printer</h4></div>
+            <div class="col-md-8"> <h4>Printer Bag</h4></div>
             <div class="col-md-4">
                 <a href="#">
                     <img src="<?php echo base_url('img/icon/download.png')?>" width="30" height="30" style="float: right;margin-top: 1em">
@@ -55,9 +55,21 @@
         </div>
         <div class="col-md-12" style="margin-top: 0.5em">
             <textarea class="log" readonly>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab, architecto aspernatur autem blanditiis consectetur dignissimos eius enim error eum eveniet molestiae nihil odio, odit quae, quasi rem repudiandae temporibus voluptate?
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad dignissimos ex expedita harum iusto labore laboriosam minima nemo, rerum tempora temporibus, vero voluptatum! Aspernatur dolorem necessitatibus quam quasi, soluta sunt.
-            </textarea>
+
+<?php
+
+$file = new SplFileObject("logs/id_bag/001_ID_Bag.log");
+
+// Loop until we reach the end of the file.
+while (!$file->eof()) {
+    // Echo one line from the file.
+    echo $file->fgets();
+}
+
+// Unset the file to call __destruct(), closing the file handle.
+$file = null;?>
+
+     </textarea>
         </div>
 
     </div>
@@ -73,8 +85,18 @@
         </div>
         <div class="col-md-12" style="margin-top: 0.5em">
             <textarea class="log" readonly>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur neque obcaecati qui quo. Architecto consequatur cupiditate dolores ea excepturi inventore maiores molestias mollitia, quaerat quos sequi similique sunt tempora totam?
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab consequatur culpa excepturi labore, minima natus, nesciunt nisi odio officiis pariatur quisquam quod sapiente sunt totam vel, vitae voluptas! Debitis, dolor!
+<?php
+
+$file = new SplFileObject("logs/camera/001_Camera.log");
+
+// Loop until we reach the end of the file.
+while (!$file->eof()) {
+    // Echo one line from the file.
+       echo $file->fgets();
+       }
+
+// Unset the file to call __destruct(), closing the file handle.
+       $file = null;?>
             </textarea>
         </div>
     </div>
@@ -90,8 +112,18 @@
         </div>
         <div class="col-md-12" style="margin-top: 0.5em">
             <textarea class="log" readonly>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab, architecto aspernatur autem blanditiis consectetur dignissimos eius enim error eum eveniet molestiae nihil odio, odit quae, quasi rem repudiandae temporibus voluptate?
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad dignissimos ex expedita harum iusto labore laboriosam minima nemo, rerum tempora temporibus, vero voluptatum! Aspernatur dolorem necessitatibus quam quasi, soluta sunt.
+<?php
+
+$file = new SplFileObject("logs/system/3-14-2018_10-54_System.log");
+
+// Loop until we reach the end of the file.
+while (!$file->eof()) {
+    // Echo one line from the file.
+    echo $file->fgets();
+}
+
+// Unset the file to call __destruct(), closing the file handle.
+$file = null;?>
             </textarea>
         </div>
 

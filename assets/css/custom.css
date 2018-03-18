@@ -2409,7 +2409,7 @@ a.btn-danger {
     font-weight: 400
 }
 textarea {
-    padding: 10px;
+    padding: 0px;
     vertical-align: top;
     width: 200px
 }

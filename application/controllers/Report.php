@@ -14,9 +14,9 @@ class Report extends CI_Controller {
         $this->load->model('joblist_model','',TRUE);
         $this->load->model('table_job_model','',TRUE);
 //        session
-        if($this->session->userdata('status')!= 1){
-            redirect(base_url("Main"));
-        }
+//        if($this->session->userdata('status')!= 1){
+//            redirect(base_url("Main"));
+//        }
     }
 
     public function display()

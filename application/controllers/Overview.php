@@ -13,9 +13,9 @@ class Overview extends CI_Controller {
         $this->load->model('job_table','',TRUE);
         $this->load->model('joblist_model','',TRUE);
 
-        if($this->session->userdata('status')!= 1){
-            redirect(base_url("Main"));
-        }
+//        if($this->session->userdata('status')!= 1){
+//            redirect(base_url("Main"));
+//        }
     }
 
     public function display()
