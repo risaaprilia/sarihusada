@@ -76,6 +76,7 @@ class joblist_model extends CI_Model
       `TargetLocation` varchar(50) DEFAULT NULL,
       `OperId` varchar(30) DEFAULT NULL,
       `CreatedDateTime` varchar(30) DEFAULT NULL,
+      `UpdatedDateTime` varchar(30) DEFAULT NULL,
       `BagSequence` varchar(10) DEFAULT NULL,
       `Status` varchar(50) DEFAULT NULL,
       `Reason` varchar(50) DEFAULT NULL,

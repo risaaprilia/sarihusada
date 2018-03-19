@@ -65,8 +65,8 @@
                 foreach ($table_view->result() as $row){?>
                 <tr>
                     <td style="font-size: 14px;"><?php echo $row->JobID;?></td>
-                    <td style="font-size: 14px;"><?php echo $row->ProductionDate;?></td>
                     <td style="font-size: 14px;"><?php echo $row->CreatedDateTime;?></td>
+                    <td style="font-size: 14px;"><?php echo $row->UpdatedDateTime;?></td>
                     <td style="font-size: 14px;"><?php echo $row->Status;?></td>
                 </tr>
                 <?php }} ?>
