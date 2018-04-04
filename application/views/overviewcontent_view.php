@@ -11,10 +11,12 @@
         <h5 style="font-family: 'Arial Black'"> OVERVIEW</h5>
     </div>
     <div class="col-md-2"style="margin-top: 8px;">
-        <??>
+
         <img src="<?php echo base_url("img/icon/user.png");?>" alt="user" width="20" height="20" ">
         <label style="font-family: Arial;color: #FFFFFF"">PIC:</label>
-        <label style="font-family: 'Arial';font-style: inherit;color: #FFFFFF""><?php echo  $this->session->userdata('username');?></label>
+        <?php foreach ($user_data->result() as $data){ ?>
+        <label style="font-family: 'Arial';font-style: inherit;color: #FFFFFF""><?php echo $data->firstname; ?> </label>
+        <?php }?>
     </div>
     <div class="col-md-2" >
         <a href="<?php echo base_url('index.php/Main/logout');?> "><button class="button_logout">LOGOUT</button></a>
@@ -189,18 +191,15 @@
                                 <div class="form-group">
                                     <label class="control-label col-md-3">Job Name</label>
                                     <div class="col-md-9">
-                                        <input name="job_name" placeholder="Job Name" class="form-control" type="text">
+                                        <input name="job_name" placeholder="Job Name" class="form-control" type="text" value="">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label col-md-3">Job Description</label>
                                     <div class="col-md-9">
-                                        <textarea name="job_desc" placeholder="Job Description" class="form-control" type="text" style="text-align: left">
-                                        </textarea>
+                                        <textarea name="job_desc" placeholder="Job Description" class="form-control -align-left" type="text" ></textarea>
                                     </div>
                                 </div>
-
-
                             </div>
                         </form>
                     </div>

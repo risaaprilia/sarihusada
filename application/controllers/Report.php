@@ -13,6 +13,7 @@ class Report extends CI_Controller {
         $this->load->helper('form','url');
         $this->load->model('joblist_model','',TRUE);
         $this->load->model('table_job_model','',TRUE);
+        $this->load->model('user_model','',TRUE);
 //        session
 //        if($this->session->userdata('status')!= 1){
 //            redirect(base_url("Main"));
@@ -24,6 +25,7 @@ class Report extends CI_Controller {
         $data['data_table'] = 0;
         $data['content_view']="report_view.php";
         $data['job_list']=$this->joblist_model->get_all_jobs();
+        $data['user_data']=$this->user_model->get_user_data_login();
         $this->load->view('overview_view',$data);
     }
 

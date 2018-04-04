@@ -28,17 +28,14 @@ class Setting extends CI_Controller {
 
     public function display()
     {
-        $userid = 1;
-//        $userid = $_SESSION['userid'];
-
-//        echo $userid;
 
         $data['content_view']="setting_view.php";
         $data['data_table1']=$this->setting_model->get_all_config();
         $data['data_table2']=$this->setting_model->get_all_config_2();
         $data['data_table3']=$this->setting_model->get_all_config_3();
         $data['data_backup']=$this->setting_model->get_backup_data();
-        $data['data_profile']=$this->setting_model->get_profile($userid);
+
+        $data['user_data']=$this->user_model->get_user_data_login();;
         $this->load->view('overview_view',$data);
     }
 

@@ -16,7 +16,9 @@
         <??>
         <img src="<?php echo base_url("img/icon/user.png");?>" alt="user" width="20" height="20" ">
         <label style="font-family: Arial;color: #FFFFFF"">PIC:</label>
-        <label style="font-family: 'Arial';font-style: inherit;color: #FFFFFF""><?php echo  $this->session->userdata('username');?></label>
+        <?php foreach ($user_data->result() as $data){ ?>
+            <label style="font-family: 'Arial';font-style: inherit;color: #FFFFFF""><?php echo $data->username; ?> </label>
+        <?php }?>
     </div>
     <div class="col-md-2" >
         <a href="<?php echo base_url('index.php/Main/logout');?> "><button class="button_logout">LOGOUT</button></a>
@@ -150,7 +152,7 @@
                 </div>
                 <!--Setting -> Profile Tab-->
                 <div role="tabpanel" class="tab-pane fade" id="tab_content4" aria-labelledby="profile-tab">
-                    <?php foreach ($data_profile->result() as $row) {?>
+                    <?php foreach ($user_data->result() as $row) {?>
                     <div class="col-md-12">
                         <div class="col-md-2"
                             <label>First Name <span class="required">*</span></label>

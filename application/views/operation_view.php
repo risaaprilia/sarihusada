@@ -15,7 +15,9 @@
         <??>
         <img src="<?php echo base_url("img/icon/user.png");?>" alt="user" width="20" height="20" ">
         <label style="font-family: Arial;color: #FFFFFF"">PIC:</label>
-        <label style="font-family: 'Arial';font-style: inherit;color: #FFFFFF""><?php echo  $this->session->userdata('username');?></label>
+        <?php foreach ($user_data->result() as $data){ ?>
+            <label style="font-family: 'Arial';font-style: inherit;color: #FFFFFF""><?php echo $data->username; ?> </label>
+        <?php }?>
     </div>
     <div class="col-md-2" >
         <a href="<?php echo base_url('index.php/Main/logout');?> "><button class="button_logout">LOGOUT</button></a>

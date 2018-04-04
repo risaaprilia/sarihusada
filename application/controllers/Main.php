@@ -16,7 +16,6 @@ class Main extends CI_Controller {
         $this->load->helper('form', 'url');
         $this->load->model('user_model','',TRUE);
         $this->load->model('job_table','',TRUE);
-
     }
 
    function index()
@@ -35,19 +34,17 @@ class Main extends CI_Controller {
         );
         $cek = $this->user_model->login_check("tuser", $where)-> num_rows();
         if($cek >0 ){
-            $data_session = array(
-                'username' => $username,
-                'status'=>1
-            );
-             $this->session->set_userdata($data_session);
 
-             $data['content_view']="overviewcontent_view.php";
+            $username_login = $username;
+            $status_login ='1';
+            $this->user_model->set_userdata($username_login,$status_login);
+
+            $data['content_view']="overviewcontent_view.php";
             $data['data_table']=$this->job_table->get_table_data();
+            $data['user_data']=$this->user_model->get_user_data_login();
             $this->load->view('overview_view',$data);
 
-//             redirect(base_url("Overview"));
-
-        }else{
+       }else{
              echo " <script type='text/javascript'>
                       alert('Wrong Pin, Please Try Again');
                      </script>";
@@ -59,6 +56,7 @@ class Main extends CI_Controller {
         $this->session->sess_destroy();
         redirect('Main','refresh');
     }
+
 
 
 }

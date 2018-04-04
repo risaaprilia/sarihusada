@@ -18,6 +18,7 @@ class Operation extends CI_Controller
         $this->load->model('job_table','',TRUE);
         $this->load->model('joblist_model','',TRUE);
         $this->load->model('config_model','',TRUE);
+        $this->load->model('user_model','',TRUE);
 //        session
 //        if ($this->session->userdata('status') != 1) {
 //            redirect(base_url("Main"));
@@ -46,6 +47,7 @@ class Operation extends CI_Controller
         $data['device_pallet']= $this->config_model->get_printer_pallet(); //pallete 1
         $data['device_bag']= $this->config_model->get_printer_bag(); //bag 2
         $data['device_camera']= $this->config_model->get_camera();// camera 3
+        $data['user_data']=$this->user_model->get_user_data_login();
         $data['content_view'] = "operation_view.php";
         $this->load->view('overview_view', $data);
 

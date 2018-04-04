@@ -12,18 +12,27 @@ class Overview extends CI_Controller {
         $this->load->helper('form','url');
         $this->load->model('job_table','',TRUE);
         $this->load->model('joblist_model','',TRUE);
+        $this->load->model('user_model','',TRUE);
 
-//        if($this->session->userdata('status')!= 1){
-//            redirect(base_url("Main"));
-//        }
+
     }
 
     public function display()
     {
-
         $data['content_view']="overviewcontent_view.php";
-        $data['data_table']=$this->joblist_model->get_all_jobs();
-        $this->load->view('overview_view',$data);
+        $data['data_table']=$this->job_table->get_table_data();
+        $data['user_data']=$this->user_model->get_user_data_login();
+//        $data_login = $this->user_model->get_user_data_login();
+//        $this->load->view('overview_view',$data);
+
+        $username=$this->user_model->get_status_login_user();
+        $status = $this->user_model->check_if_login($username);
+        if($status == 1){
+            $this->load->view('overview_view',$data);
+            echo "here";
+        };
+
+
 
     }
 
@@ -34,16 +43,13 @@ class Overview extends CI_Controller {
     }
 
     function create_job(){
-
         $data = array(
           'job_name' => $this->input->post('job_name'),
             'job_desc' => $this->input->post('job_desc'),
             'job_status' => 0,
-
         );
         $insert = $this->joblist_model->insert_jobs($data);
         $this->joblist_model->create_new_table($insert);
-
         echo json_encode(array("status"=>TRUE));
     }
 
